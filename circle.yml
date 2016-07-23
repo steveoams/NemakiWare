@@ -1,3 +1,5 @@
 test:
   override:
     - echo Hello World
+    - mvn -f /home/ubuntu/NemakiWare/setup/couchdb/bjornloka package
+    - java -cp /home/ubuntu/NemakiWare/setup/couchdb/bjornloka/target/bjornloka.jar jp.aegif.nemaki.bjornloka.Load http://127.0.0.1:5984 bedroom /home/ubuntu/NemakiWare/setup/couchdb/initial_import/bedroom_init.dump true
