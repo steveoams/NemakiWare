@@ -1,11 +1,9 @@
 machine:
   timezone: Asia/Tokyo
-  
   hosts:   #/etc/hostsを書き換える
     localhost: 127.0.0.1
-
-    services:
-        - couchdb
+  services:
+    - couchdb
 
 test:
   override:
