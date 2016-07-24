@@ -43,17 +43,17 @@ import org.apache.chemistry.opencmis.commons.impl.dataobjects.ContentStreamImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-public class TestBase {
+public class TestBaseWithSanbox {
 	protected static Session session;
 	protected static String testFolderId;
 	
 	@BeforeClass
 	public static void before() throws Exception {
 		session = SessionUtil.createCmisSession("bedroom", "admin", "admin");
-		//testFolderId = prepareData();
+		testFolderId = prepareData();
 	}
 
-	
+	@AfterClass
 	public static void after() throws Exception {
 		Folder folder = (Folder) session.getObject(testFolderId);
 		folder.deleteTree(true, UnfileObject.DELETE, true);

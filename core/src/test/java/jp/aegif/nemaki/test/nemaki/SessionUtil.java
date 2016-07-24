@@ -14,9 +14,6 @@ import org.apache.chemistry.opencmis.commons.enums.IncludeRelationships;
 public class SessionUtil {
 	
 	public static Session createCmisSession(String repositoryId, String userId, String password){
-		//System.setProperty("http.maxConnections", "500"); 
-		
-		
 		Map<String, String> parameter = new HashMap<String, String>();
 
 		// user credentials
@@ -43,7 +40,6 @@ public class SessionUtil {
 		
 		
 		//parameter.put(SessionParameter.HTTP_INVOKER_CLASS, "org.apache.chemistry.opencmis.client.bindings.spi.http.ApacheClientHttpInvoker");
-		
 
     	SessionFactory f = SessionFactoryImpl.newInstance();
     	Session session = f.createSession(parameter);
