@@ -7,8 +7,6 @@ general:
 
 machine:
   timezone: Asia/Tokyo
-  hosts:
-    localhost: 127.0.0.1
   services:
     - couchdb
 
