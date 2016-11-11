@@ -60,11 +60,16 @@
 			<groupId>jp.aegif.nemakiware</groupId>
 			<artifactId>nemakiware-action</artifactId>
 			<version>0.0.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../action/target/nemakiware-action-0.0.1.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>jp.aegif.nemakiware</groupId>
 			<artifactId>nemakiware-common</artifactId>
 			<version>2.3.10</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/../common/target/nemakiware-common-2.3.10.jar</systemPath>
 		</dependency>
 
 		<dependency>
