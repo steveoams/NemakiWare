@@ -43,6 +43,12 @@
 			<!-- highly available repository serving empty artifacts -->
 			<url>http://version99.qos.ch/</url>
 		</repository>
+
+		<repository>
+			<id>NemakiWare</id>
+			<!-- highly available repository serving empty artifacts -->
+			<url>https://raw.github.com/MoritakaSoma/NemakiWare/mvn-repo</url>
+		</repository>
 	</repositories>
 
 	<dependencyManagement>
@@ -65,8 +71,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>jp.aegif.nemakiware</groupId>
-			<artifactId>nemakiware-common</artifactId>
+			<groupId>jp.aegif.nemakiware-test</groupId>
+			<artifactId>nemakiware-common-test</artifactId>
 			<version>2.3.10</version>
 			<scope>system</scope>
 			<systemPath>${basedir}/../common/target/nemakiware-common-2.3.10.jar</systemPath>

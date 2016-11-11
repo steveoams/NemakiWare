@@ -16,8 +16,6 @@ initialize := {
     sys.error("Java 8 is required for this project.")
 }
 
-unmanagedBase <<= baseDirectory { base => base / "../common/target" }
-
 resolvers += Resolver.mavenLocal
 
 libraryDependencies ++= Seq(
@@ -26,6 +24,7 @@ libraryDependencies ++= Seq(
   cache,
   javaWs,
   //"jp.aegif.nemakiware" % "nemakiware-common" % "2.3.10",
+  "jp.aegif.nemakiware-test" % "nemakiware-common-test" % "2.3.10",
   "commons-collections" % "commons-collections" % "3.2.1",
   "org.webjars" %% "webjars-play" % "2.3.0",
   "org.webjars" % "bootstrap" % "3.2.0",

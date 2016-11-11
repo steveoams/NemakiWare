@@ -2,14 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>jp.aegif.nemakiware</groupId>
-	<artifactId>nemakiware-common</artifactId>
+	<groupId>jp.aegif.nemakiware-test</groupId>
+	<artifactId>nemakiware-common-test</artifactId>
 	<version>2.3.10</version>
 	<packaging>jar</packaging>
 	<name>common</name>
 	<description>Nemakiware Common Library</description>
-	<url>https://github.com/aegif/NemakiWare</url>
-
+	<!-- <url>https://github.com/aegif/NemakiWare</url> -->
+	<url>https://github.com/MoritakaSoma/NemakiWare/common</url>
+ 
 	<parent>
 		<groupId>jp.aegif.nemakiware</groupId>
 		<artifactId>nemakiware</artifactId>
@@ -18,7 +19,17 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 認証情報読み込み -->
+		<github.global.server>github</github.global.server>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repos</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -38,6 +49,31 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>
+					<noJekyll>true</noJekyll>
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<branch>refs/heads/mvn-repo</branch>
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<repositoryName>NemakiWare</repositoryName>
+					<repositoryOwner>MoritakaSoma</repositoryOwner>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
