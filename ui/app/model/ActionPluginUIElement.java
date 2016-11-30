@@ -39,5 +39,13 @@ public class ActionPluginUIElement {
 	public void setFormHtml(String value){
 		 _formHtml = value;
 	}
+	
+	private boolean advancedAction = false;
+	public boolean isAdvancedAction() {
+		return advancedAction;
+	}
+	public void setAdvancedAction(boolean advanced) {
+		advancedAction = advanced;
+	}
 
 }

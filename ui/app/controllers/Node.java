@@ -620,6 +620,9 @@ public class Node extends Controller {
 		CmisObject obj = session.getObject(id);
 
 		ActionPluginUIElement elm = Util.getActionPluginUIElement(obj, actionId);
+		if (elm.isAdvancedAction()) {
+			return ok(views.html.node.advanced_action.render(repositoryId, obj, elm));
+		}
 
 		return ok(views.html.node.action.render(repositoryId, obj, elm));
 	}

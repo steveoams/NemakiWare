@@ -207,6 +207,9 @@ public class Util {
 							button.setFontAwesomeName(actionElm.getValue());
 						}else if(actionElm.getName().equals("actionFormHtml")){
 							button.setFormHtml(actionElm.getValue());
+						}else if(actionElm.getName().equals("actionHtml")) {
+							button.setFormHtml(actionElm.getValue());
+							button.setAdvancedAction(true);
 						}
 					}
 					result.add( button );

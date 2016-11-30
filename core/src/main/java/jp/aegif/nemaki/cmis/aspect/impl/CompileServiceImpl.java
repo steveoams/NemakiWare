@@ -110,6 +110,7 @@ import jp.aegif.nemaki.model.VersionSeries;
 import jp.aegif.nemaki.plugin.action.ActionContext;
 import jp.aegif.nemaki.plugin.action.JavaBackedAction;
 import jp.aegif.nemaki.plugin.action.trigger.ActionTriggerBase;
+import jp.aegif.nemaki.plugin.action.trigger.AdvancedUserButtonPerCmisObjectActionTrigger;
 import jp.aegif.nemaki.plugin.action.trigger.UserButtonPerCmisObjcetActionTrigger;
 import jp.aegif.nemaki.util.DataUtil;
 import jp.aegif.nemaki.util.PropertyManager;
@@ -1482,7 +1483,12 @@ public class CompileServiceImpl implements CompileService {
 					List<CmisExtensionElement> extElements = new ArrayList<CmisExtensionElement>();
 					extElements.add(new CmisExtensionElementImpl(ns, "actionId", null, action_id));
 					ActionTriggerBase trigger = plugin.getActionTrigger(actionContext);
-					if(trigger instanceof  UserButtonPerCmisObjcetActionTrigger){
+					if (trigger instanceof AdvancedUserButtonPerCmisObjectActionTrigger) {
+						AdvancedUserButtonPerCmisObjectActionTrigger objectActionTrigger = (AdvancedUserButtonPerCmisObjectActionTrigger) trigger;
+						extElements.add(new CmisExtensionElementImpl(ns, "actionButtonLabel", null, (objectActionTrigger.getDisplayName())));
+						extElements.add(new CmisExtensionElementImpl(ns, "actionButtonIcon", null, (objectActionTrigger.getFontAwesomeName())));
+						extElements.add(new CmisExtensionElementImpl(ns, "actionHtml", null, (objectActionTrigger.getHtml())));						
+					} else if(trigger instanceof  UserButtonPerCmisObjcetActionTrigger){
 						UserButtonPerCmisObjcetActionTrigger objectActionTrigger = (UserButtonPerCmisObjcetActionTrigger) trigger;
 						extElements.add(new CmisExtensionElementImpl(ns, "actionButtonLabel", null, (objectActionTrigger.getDisplayName())));
 						extElements.add(new CmisExtensionElementImpl(ns, "actionButtonIcon", null, (objectActionTrigger.getFontAwesomeName())));

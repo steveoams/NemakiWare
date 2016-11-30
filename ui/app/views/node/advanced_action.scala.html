@@ -1,0 +1,24 @@
+@*{<meta charset="UTF-8" />}*@
+
+@import util.Util
+@import org.apache.chemistry.opencmis.client.api.CmisObject
+@import model.ActionPluginUIElement
+@import component._
+@import util._
+@import org.apache.chemistry.opencmis.client.api.Document
+@import org.apache.chemistry.opencmis.commons.PropertyIds
+@import play.mvc.Http.Context.Implicit
+
+
+@(repositoryId:String)(obj:CmisObject)(elm:ActionPluginUIElement)
+<script type="text/javascript">
+	var _do_action_url = "@routes.Node.doAction(repositoryId, obj.getId, elm.getActionId)";
+</script>
+<div class="container tab-pane">
+	<div class="row">
+		<div class="col-sm-5">
+			<!-- Action form -->
+			@Html(elm.getFormHtml())
+		</div>
+	</div>
+</div>
